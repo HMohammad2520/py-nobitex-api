@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-nobitex-api"
+version = "1.0.0"
+description = "Simple nobitex api module"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Hmohammad2520", email = "hmohammad2520@gmail.com" }
+]
+keywords = ["python", "library", "nobitex", "api"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests",
+]
+requires-python = ">=3.12"
+
+[project.urls]
+Homepage = "https://github.com/Hmohammad2520/py-nobitex-api"
+BugTracker = "https://github.com/Hmohammad2520/py-nobitex-api/issues"
