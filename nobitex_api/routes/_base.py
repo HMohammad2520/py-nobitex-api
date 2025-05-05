@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Literal, Optional
 
 BASE_LIMIT = 300
 BASE_OFFSET = 0
@@ -17,8 +17,25 @@ class NobitexRoute:
     _route_path: str = ''
     _version: str = ''
 
-    def _create_route(self, *addition: str) -> str:
-        return f"{(f'/{self._version}' if self._version else '')}/{self._route_path}/{'/'.join(addition)}"
+    def _create_route(
+            self,
+            *addition: str,
+            version: Optional[Literal['v2', 'v3']] = None
+            ) -> str:
+        """
+        Creates URL for the Route.
+
+        Args:
+            *addition (str): Additional path to the route.
+            version (Literal['v2', 'v3'], optional): The version of the route. Defaults to ''.
+        
+        Returns:
+            str: The created route.
+        """
+        if not version:
+            version = self._version
+
+        return f"{(f'/{version}' if version else '')}/{self._route_path}/{'/'.join(addition)}"
 
     def __init__(self, _client):
         """
