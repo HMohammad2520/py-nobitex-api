@@ -12,7 +12,7 @@ class Orderbook(NobitexRoute):
     _route_path: str = 'orderbook'
     _version: str = 'v3'
 
-    def get_orders(self, Currency: CurrencyEnum) -> dict:
+    def get_orders(self, currency: CurrencyEnum) -> dict:
         """
         Get orderbook data for a specific currency.
 
@@ -24,5 +24,5 @@ class Orderbook(NobitexRoute):
 
         return self._client._send_request(
             request_method='GET',
-            route=self._create_route(Currency.value),
+            route=self._create_route(currency.value),
         )

@@ -1,9 +1,12 @@
 from .auth import Auth
-from .users import Users
 from .orderbook import Orderbook
+from .trades import Trades
+from .users import Users
+
 
 __all__ = [
     'Auth',
-    'Users',
     'Orderbook',
+    'Trades',
+    'Users',
 ]
