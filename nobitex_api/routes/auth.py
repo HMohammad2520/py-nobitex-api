@@ -1,0 +1,60 @@
+from typing import Optional
+from nobitex_api.type_hints import NobitexBool, NobitexCaptcha
+from ._base import NobitexRoute
+
+class Auth(NobitexRoute):
+    """
+    Nobitex API Auth endpoint.
+    """
+    _route_path: str = 'auth'
+    _version: str = ''
+
+    def login(
+            self, 
+            username: Optional[str] = None, 
+            password: Optional[str] = None, 
+            remember: NobitexBool = 'no', 
+            captcha: NobitexCaptcha = 'api',
+            ) -> str:
+        """
+        Authenticate the user and retrieve an access token.
+
+        Returns:
+            str: The access token for authenticated requests.
+        """
+        post_parms = {
+            'username': username or self._client._username,
+            'password': password or self._client._password,
+            'remember': remember,
+            'captcha': captcha,
+            }
+
+        if not post_parms['username'] or not post_parms['password']:
+            raise ValueError('Username and password are required')
+
+        data = self._client._send_request(
+            route = self._create_route('login', ''), # Ensures Addition of / at the end
+            request_method = 'POST',
+            post_parms = post_parms,
+            )
+
+        if data:
+            self._client._token = data.get('key')
+            self._client._device = data.get('device')
+        
+        return self._client._token
+
+    def logout(self) -> None:
+        """
+        Clears the access token from the instance.
+
+        This method should be called to invalidate the session.
+        """
+        if self._client._token:
+            self._client._token = ''
+
+        self._client._send_request(
+            route = self._create_route('logout', ''),
+            request_method = 'POST',
+        )
+
