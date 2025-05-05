@@ -2,6 +2,12 @@ from typing import Optional
 from nobitex_api.type_hints import NobitexBool, NobitexCaptcha
 from ._base import NobitexRoute
 
+"""
+https://api.nobitex.ir/auth/login/ #Done
+https://api.nobitex.ir/auth/logout/ #Done
+https://api.nobitex.ir/auth/ws/token/ --> For WebSocket #Will Not Get Implemented
+"""
+
 class Auth(NobitexRoute):
     """
     Nobitex API Auth endpoint.
