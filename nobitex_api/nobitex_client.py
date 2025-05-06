@@ -95,7 +95,7 @@ class NobitexClient(RouteMixin):
 
         # Print Verbose
         if self._verbose:
-            print (f'Sending Request: {request_method} {url} --> {response.status_code} --> {response.text}')
+            print (f'Sending Request: {request_method} {response.url} --> {response.status_code} --> {response.text}')
 
         # Check for Server respond
         if 200 <= response.status_code < 500:
