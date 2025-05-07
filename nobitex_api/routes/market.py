@@ -1,6 +1,6 @@
 from typing import Literal, Optional
-from nobitex_api.currency import CurrencyEnum
-from nobitex_api.type_hints import NobitexBool, NobitexCaptcha
+from nobitex_api.currency import Currency
+from nobitex_api.type_hints import CurrencyMode
 from ._base import NobitexRoute
 
 """
@@ -25,9 +25,9 @@ class Market(NobitexRoute):
 
     def add_order(
             self,
-            type: Literal['buy','sell'],
-            src_currency: CurrencyEnum,
-            dst_currency: CurrencyEnum,
+            type: Literal['buy', 'sell'],
+            src_currency: Currency,
+            dst_currency: Currency,
             amount: float,
             price: float,
             mode: Optional[Literal['oco']] = None,
@@ -56,8 +56,8 @@ class Market(NobitexRoute):
         """
         post_parameters = {
             'type': type,
-            'srcCurrency': src_currency.value,
-            'dstCurrency': dst_currency.value,
+            'srcCurrency': src_currency.get('symbol'),
+            'dstCurrency': dst_currency.get('symbol'),
             'amount': amount,
             'price': price,
             'mode': mode,
@@ -77,7 +77,7 @@ class Market(NobitexRoute):
     def get_order_status(
             self,
             id: int,
-            client_order_id: Optional[str],
+            client_order_id: Optional[str] = None,
         ) -> dict:
         """
         Get the status of an order.
@@ -105,8 +105,8 @@ class Market(NobitexRoute):
             self,
             type: Literal['buy', 'sell'],
             trade_type: Literal['spot', 'margin'],
-            src_currency: CurrencyEnum,
-            dst_currency: CurrencyEnum,
+            src_currency: Currency,
+            dst_currency: Currency,
             details: Literal[1, 2] = 1,
             from_id: int = 1,
             order: Optional[Literal['id', 'created_at', 'price']] = None,
@@ -133,8 +133,8 @@ class Market(NobitexRoute):
         post_params = {
             'type': type,
             'tradeType': trade_type,
-            'srcCurrency': src_currency.value,
-            'dstCurrency': dst_currency.value,
+            'srcCurrency': src_currency.symbol,
+            'dstCurrency': dst_currency.symbol,
             'details': details,
             'fromId': from_id,
             'order': order,
@@ -153,7 +153,7 @@ class Market(NobitexRoute):
             self,
             status: Literal['active', 'canceled'],
             order_id: int = None,
-            clint_order_id: str = None,
+            clint_order_id: Optional[str] = None,
         ) -> dict:
         """
         Update the status of an order.
@@ -182,8 +182,8 @@ class Market(NobitexRoute):
             hours: float,
             execution: Optional[Literal['market', 'limit', 'stop_market', 'stop_limit']] = None,
             trade_type: Optional[Literal['margin', 'spot']] = None,
-            src_currenct: Optional[CurrencyEnum] = None,
-            dst_currency: Optional[CurrencyEnum] = None,
+            src_currency: Optional[Currency] = None,
+            dst_currency: Optional[Currency] = None,
         ) -> dict:
         """
         Cancel old orders.
@@ -203,8 +203,8 @@ class Market(NobitexRoute):
             'hours': hours,
             'execution': execution,
             'tradeType': trade_type,
-            'srcCurrency': src_currenct.value,
-            'dstCurrency': dst_currency.value,
+            'srcCurrency': src_currency.symbol if src_currency is not None else None ,
+            'dstCurrency': dst_currency.symbol if dst_currency is not None else None,
         }
         post_params = {k: v for k, v in post_params.items() if v is not None}
         
@@ -216,8 +216,8 @@ class Market(NobitexRoute):
 
     def get_trades_list(
             self,
-            src_currency: Optional[CurrencyEnum] = None,
-            dst_currency: Optional[CurrencyEnum] = None,
+            src_currency: Optional[Currency] = None,
+            dst_currency: Optional[Currency] = None,
             from_id : Optional[int] = None,
         ) -> dict:
         """
@@ -233,8 +233,8 @@ class Market(NobitexRoute):
         """
 
         get_parms = {
-            'srcCurrency': src_currency.value,
-            'dstCurrency': dst_currency.value,
+            'srcCurrency': src_currency.symbol if src_currency is not None else None,
+            'dstCurrency': dst_currency.symbol if dst_currency is not None else None,
             'fromId': from_id,
         }
         get_parms = {k: v for k, v in get_parms.items() if v is not None}
@@ -247,8 +247,8 @@ class Market(NobitexRoute):
 
     def get_stats(
             self,
-            src_currency: Optional[CurrencyEnum] = None,
-            dst_currency: Optional[CurrencyEnum] = None,
+            src_currency: Optional[Currency] = None,
+            dst_currency: Optional[Currency] = None,
         ) -> dict:
         """
         Get market stats.
@@ -262,8 +262,8 @@ class Market(NobitexRoute):
         """
 
         get_parms = {
-            'srcCurrency': src_currency.value,
-            'dstCurrency': dst_currency.value,
+            'srcCurrency': src_currency.symbol if src_currency is not None else None,
+            'dstCurrency': dst_currency.symbol if dst_currency is not None else None,
         }
         get_parms = {k: v for k, v in get_parms.items() if v is not None}
         
@@ -275,7 +275,8 @@ class Market(NobitexRoute):
 
     def get_udf_history(
             self,
-            symbol: CurrencyEnum,
+            symbol: Currency,
+            against: CurrencyMode,
             resolution: Literal['1', '5', '15', '30','60', '180', '240', '360', '720', 'D','2D', '3D'],
             to: int,
             fr: int = None,
@@ -297,7 +298,7 @@ class Market(NobitexRoute):
             dict: Response from the server.
         """
         get_parms = {
-            'symbol': symbol,
+            'symbol': symbol.get(against),
             'resolution': resolution,
             'to': to,
             'from': fr,

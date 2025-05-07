@@ -1,226 +1,142 @@
-from enum import Enum
+from typing import Literal
 
-class CurrencyEnum(Enum):
-    all = 'all'
-    rial = 'RLS'
+class Currency:
+    """
+    Base Class for Currency.
+    """
+    def __init__(
+            self,
+            name: str,
+            irt: str,
+            usdt: str,
+            symbol: str,
+        ) -> None:
+        """
+        Initiation.
+        
+        Args:
+            name (str): Name of the currency.
+            upper (str): Upper case name of the currency.
+            lower (str): Lower case name of the currency.
+            symbol (str): Symbol of the currency.
+        """
+        self.name = name
+        self.irt = irt
+        self.usdt = usdt
+        self.symbol = symbol
 
-    btc_irt = 'BTCIRT'
-    eth_irt = 'ETHIRT'
-    ltc_irt = 'LTCIRT'
-    usdt_irt = 'USDTIRT'
-    xrp_irt = 'XRPIRT'
-    bch_irt = 'BCHIRT'
-    bnb_irt = 'BNBIRT'
-    eos_irt = 'EOSIRT'
-    xlm_irt = 'XLMIRT'
-    etc_irt = 'ETCIRT'
-    trx_irt = 'TRXIRT'
-    doge_irt = 'DOGEIRT'
-    uni_irt = 'UNIIRT'
-    dai_irt = 'DAIIRT'
-    link_irt = 'LINKIRT'
-    dot_irt = 'DOTIRT'
-    aave_irt = 'AAVEIRT'
-    ada_irt = 'ADAIRT'
-    shib_irt = 'SHIBIRT'
-    ftm_irt = 'FTMIRT'
-    matic_irt = 'MATICIRT'
-    axs_irt = 'AXSIRT'
-    mana_irt = 'MANAIRT'
-    sand_irt = 'SANDIRT'
-    avax_irt = 'AVAXIRT'
-    mkr_irt = 'MKRIRT'
-    gmt_irt = 'GMTIRT'
-    usdc_irt = 'USDCIRT'
-    btc_usdt = 'BTCUSDT'
-    eth_usdt = 'ETHUSDT'
-    ltc_usdt = 'LTCUSDT'
-    xrp_usdt = 'XRPUSDT'
-    bch_usdt = 'BCHUSDT'
-    bnb_usdt = 'BNBUSDT'
-    eos_usdt = 'EOSUSDT'
-    xlm_usdt = 'XLMUSDT'
-    etc_usdt = 'ETCUSDT'
-    trx_usdt = 'TRXUSDT'
-    pmn_usdt = 'PMNUSDT'
-    doge_usdt = 'DOGEUSDT'
-    uni_usdt = 'UNIUSDT'
-    dai_usdt = 'DAIUSDT'
-    link_usdt = 'LINKUSDT'
-    dot_usdt = 'DOTUSDT'
-    aave_usdt = 'AAVEUSDT'
-    ada_usdt = 'ADAUSDT'
-    shib_usdt = 'SHIBUSDT'
-    ftm_usdt = 'FTMUSDT'
-    matic_usdt = 'MATICUSDT'
-    axs_usdt = 'AXSUSDT'
-    mana_usdt = 'MANAUSDT'
-    sand_usdt = 'SANDUSDT'
-    avax_usdt = 'AVAXUSDT'
-    mkr_usdt = 'MKRUSDT'
-    gmt_usdt = 'GMTUSDT'
-    usdc_usdt = 'USDCUSDT'
-    chz_irt = 'CHZIRT'
-    grt_irt = 'GRTIRT'
-    crv_irt = 'CRVIRT'
-    band_usdt = 'BANDUSDT'
-    comp_usdt = 'COMPUSDT'
-    egld_irt = 'EGLDIRT'
-    hbar_usdt = 'HBARUSDT'
-    gal_irt = 'GALIRT'
-    hbar_irt = 'HBARIRT'
-    wbtc_usdt = 'WBTCUSDT'
-    imx_irt = 'IMXIRT'
-    wbtc_irt = 'WBTCIRT'
-    one_irt = 'ONEIRT'
-    glm_usdt = 'GLMUSDT'
-    ens_irt = 'ENSIRT'
-    one_m_btt_irt = '1M_BTTIRT'
-    sushi_irt = 'SUSHIIRT'
-    ldo_irt = 'LDOIRT'
-    atom_usdt = 'ATOMUSDT'
-    zro_irt = 'ZROIRT'
-    storj_irt = 'STORJIRT'
-    ant_irt = 'ANTIRT'
-    aevo_usdt = 'AEVOUSDT'
-    one_hundred_k_floki_irt = '100K_FLOKIIRT'
-    rsr_usdt = 'RSRUSDT'
-    api3_usdt = 'API3USDT'
-    glm_irt = 'GLMIRT'
-    xmr_irt = 'XMRIRT'
-    ens_usdt = 'ENSUSDT'
-    om_irt = 'OMIRT'
-    rdnt_irt = 'RDNTIRT'
-    magic_usdt = 'MAGICUSDT'
-    t_irt = 'TIRT'
-    atom_irt = 'ATOMIRT'
-    not_irt = 'NOTIRT'
-    cvx_irt = 'CVXIRT'
-    xtz_irt = 'XTZIRT'
-    fil_irt = 'FILIRT'
-    uma_irt = 'UMAIRT'
-    one_b_babydoge_irt = '1B_BABYDOGEIRT'
-    band_irt = 'BANDIRT'
-    ssv_irt = 'SSVIRT'
-    dao_irt = 'DAOIRT'
-    blur_irt = 'BLURIRT'
-    one_usdt = 'ONEUSDT'
-    egala_usdt = 'EGALAUSDT'
-    gmx_irt = 'GMXIRT'
-    xtz_usdt = 'XTZUSDT'
-    flow_usdt = 'FLOWUSDT'
-    gal_usdt = 'GALUSDT'
-    w_irt = 'WIRT'
-    cvc_usdt = 'CVCUSDT'
-    nmr_usdt = 'NMRUSDT'
-    skl_irt = 'SKLIRT'
-    snt_irt = 'SNTIRT'
-    bat_usdt = 'BATUSDT'
-    trb_usdt = 'TRBUSDT'
-    nmr_irt = 'NMRIRT'
-    rdnt_usdt = 'RDNTUSDT'
-    api3_irt = 'API3IRT'
-    cvc_irt = 'CVCIRT'
-    wld_irt = 'WLDIRT'
-    yfi_usdt = 'YFIUSDT'
-    sol_irt = 'SOLIRT'
-    t_usdt = 'TUSDT'
-    qnt_usdt = 'QNTUSDT'
-    imx_usdt = 'IMXUSDT'
-    aevo_irt = 'AEVOIRT'
-    gmx_usdt = 'GMXUSDT'
-    ethfi_usdt = 'ETHFIUSDT'
-    qnt_irt = 'QNTIRT'
-    grt_usdt = 'GRTUSDT'
-    wld_usdt = 'WLDUSDT'
-    fet_irt = 'FETIRT'
-    agix_irt = 'AGIXIRT'
-    not_usdt = 'NOTUSDT'
-    lpt_irt = 'LPTIRT'
-    slp_irt = 'SLPIRT'
-    meme_usdt = 'MEMEUSDT'
-    sol_usdt = 'SOLUSDT'
-    bal_usdt = 'BALUSDT'
-    dao_usdt = 'DAOUSDT'
-    comp_irt = 'COMPIRT'
-    meme_irt = 'MEMEIRT'
-    ton_usdt = 'TONUSDT'
-    bat_irt = 'BATIRT'
-    snx_irt = 'SNXIRT'
-    trb_irt = 'TRBIRT'
-    one_inch_usdt = '1INCHUSDT'
-    om_usdt = 'OMUSDT'
-    rsr_irt = 'RSRIRT'
-    rndr_irt = 'RNDRIRT'
-    slp_usdt = 'SLPUSDT'
-    ssv_usdt = 'SSVUSDT'
-    rndr_usdt = 'RNDRUSDT'
-    agld_irt = 'AGLDIRT'
-    near_usdt = 'NEARUSDT'
-    woo_usdt = 'WOOUSDT'
-    yfi_irt = 'YFIIRT'
-    mdt_irt = 'MDTIRT'
-    crv_usdt = 'CRVUSDT'
-    mdt_usdt = 'MDTUSDT'
-    egld_usdt = 'EGLDUSDT'
-    lrc_irt = 'LRCIRT'
-    lpt_usdt = 'LPTUSDT'
-    bico_usdt = 'BICOUSDT'
-    one_m_pepe_irt = '1M_PEPEIRT'
-    bico_irt = 'BICOIRT'
-    magic_irt = 'MAGICIRT'
-    ethfi_irt = 'ETHFIIRT'
-    ant_usdt = 'ANTUSDT'
-    one_inch_irt = '1INCHIRT'
-    ape_usdt = 'APEUSDT'
-    one_m_nft_irt = '1M_NFTIRT'
-    arb_irt = 'ARBIRT'
-    lrc_usdt = 'LRCUSDT'
-    w_usdt = 'WUSDT'
-    blur_usdt = 'BLURUSDT'
-    celr_usdt = 'CELRUSDT'
-    dydx_irt = 'DYDXIRT'
-    cvx_usdt = 'CVXUSDT'
-    bal_irt = 'BALIRT'
-    ton_irt = 'TONIRT'
-    one_hundred_k_floki_usdt = '100K_FLOKIUSDT'
-    jst_usdt = 'JSTUSDT'
-    zro_usdt = 'ZROUSDT'
-    arb_usdt = 'ARBUSDT'
-    apt_irt = 'APTIRT'
-    one_m_nft_usdt = '1M_NFTUSDT'
-    celr_irt = 'CELRIRT'
-    uma_usdt = 'UMAUSDT'
-    skl_usdt = 'SKLUSDT'
-    zrx_usdt = 'ZRXUSDT'
-    agld_usdt = 'AGLDUSDT'
-    algo_irt = 'ALGOIRT'
-    near_irt = 'NEARIRT'
-    apt_usdt = 'APTUSDT'
-    zrx_irt = 'ZRXIRT'
-    sushi_usdt = 'SUSHIUSDT'
-    fet_usdt = 'FETUSDT'
-    algo_usdt = 'ALGOUSDT'
-    one_m_pepe_usdt = '1M_PEPEUSDT'
-    mask_irt = 'MASKIRT'
-    egala_irt = 'EGALAIRT'
-    flow_irt = 'FLOWIRT'
-    one_b_babydoge_usdt = '1B_BABYDOGEUSDT'
-    mask_usdt = 'MASKUSDT'
-    one_m_btt_usdt = '1M_BTTUSDT'
-    storj_usdt = 'STORJUSDT'
-    xmr_usdt = 'XMRUSDT'
-    omg_irt = 'OMGIRT'
-    snt_usdt = 'SNTUSDT'
-    ape_irt = 'APEIRT'
-    fil_usdt = 'FILUSDT'
-    enj_usdt = 'ENJUSDT'
-    omg_usdt = 'OMGUSDT'
-    woo_irt = 'WOOIRT'
-    chz_usdt = 'CHZUSDT'
-    enj_irt = 'ENJIRT'
-    dydx_usdt = 'DYDXUSDT'
-    agix_usdt = 'AGIXUSDT'
-    jst_irt = 'JSTIRT'
-    ldo_usdt = 'LDOUSDT'
-    snx_usdt = 'SNXUSDT'
+        self._dict = {
+            "name": name,
+            "irt": irt,
+            "usdt": usdt,
+            "symbol": symbol,
+        }
+
+    def get(self, currency: Literal['irt', 'usdt', 'symbol']) -> str:
+        result = self._dict[currency]
+        if result: return result
+        else: raise ValueError(f"Invalid currency: {currency}")
+
+    def __str__(self) -> str:
+        return self.name
+
+class CurrencyManager:
+    """
+    Class to manage currencies.
+    """
+
+    all = Currency('all', 'all', 'all', 'all')
+    rial = Currency('rial', 'RLS', 'RLS', 'rls')
+
+    inch = Currency('1inch', '1INCHIRT', '1INCHUSDT', '1inch')
+    aave = Currency('aave', 'AAVEIRT', 'AAVEUSDT', 'aave')
+    ada = Currency('ada', 'ADAIRT', 'ADAUSDT', 'ada')
+    agld = Currency('agld', 'AGLDIRT', 'AGLDUSDT', 'agld')
+    algo = Currency('algo', 'ALGOIRT', 'ALGOUSDT', 'algo')
+    ant = Currency('ant', 'ANTIRT', 'ANTUSDT', 'ant')
+    api3 = Currency('api3', 'API3IRT', 'API3USDT', 'api3')
+    apt = Currency('apt', 'APTIRT', 'APTUSDT', 'apt')
+    avax = Currency('avax', 'AVAXIRT', 'AVAXUSDT', 'avax')
+    axs = Currency('axs', 'AXSIRT', 'AXSUSDT', 'axs')
+    band = Currency('band', 'BANDIRT', 'BANDUSDT', 'band')
+    bat = Currency('bat', 'BATIRT', 'BATUSDT', 'bat')
+    bch = Currency('bch', 'BCHIRT', 'BCHUSDT', 'bch')
+    blur = Currency('blur', 'BLURIRT', 'BLURUSDT', 'blur')
+    bnb = Currency('bnb', 'BNBIRT', 'BNBUSDT', 'bnb')
+    btc = Currency('btc', 'BTCIRT', 'BTCUSDT', 'btc')
+    celr = Currency('celr', 'CELRIRT', 'CELRUSDT', 'celr')
+    comp = Currency('comp', 'COMPIRT', 'COMPUSDT', 'comp')
+    crv = Currency('crv', 'CRVIRT', 'CRVUSDT', 'crv')
+    cvx = Currency('cvx', 'CVXIRT', 'CVXUSDT', 'cvx')
+    dai = Currency('dai', 'DAIIRT', 'DAIUSDT', 'dai')
+    dao = Currency('dao', 'DAOIRT', 'DAOUSDT', 'dao')
+    doge = Currency('doge', 'DOGEIRT', 'DOGEUSDT', 'doge')
+    dot = Currency('dot', 'DOTIRT', 'DOTUSDT', 'dot')
+    dydx = Currency('dydx', 'DYDXIRT', 'DYDXUSDT', 'dydx')
+    egala = Currency('egala', 'EGALAIRT', 'EGALAUSDT', 'egala')
+    enj = Currency('enj', 'ENJIRT', 'ENJUSDT', 'enj')
+    ens = Currency('ens', 'ENSIRT', 'ENSUSDT', 'ens')
+    eos = Currency('eos', 'EOSIRT', 'EOSUSDT', 'eos')
+    etc = Currency('etc', 'ETCIRT', 'ETCUSDT', 'etc')
+    eth = Currency('eth', 'ETHIRT', 'ETHUSDT', 'eth')
+    ethfi = Currency('ethfi', 'ETHFIIRT', 'ETHFIUSDT', 'ethfi')
+    fet = Currency('fet', 'FETIRT', 'FETUSDT', 'fet')
+    fil = Currency('fil', 'FILIRT', 'FILUSDT', 'fil')
+    flow = Currency('flow', 'FLOWIRT', 'FLOWUSDT', 'flow')
+    ftm = Currency('ftm', 'FTMIRT', 'FTMUSDT', 'ftm')
+    gal = Currency('gal', 'GALIRT', 'GALUSDT', 'gal')
+    glm = Currency('glm', 'GLMIRT', 'GLMUSDT', 'glm')
+    gmx = Currency('gmx', 'GMXIRT', 'GMXUSDT', 'gmx')
+    grt = Currency('grt', 'GRTIRT', 'GRTUSDT', 'grt')
+    gmt = Currency('gmt', 'GMTIRT', 'GMTUSDT', 'gmt')
+    hbar = Currency('hbar', 'HBARIRT', 'HBARUSDT', 'hbar')
+    imx = Currency('imx', 'IMXIRT', 'IMXUSDT', 'imx')
+    jst = Currency('jst', 'JSTIRT', 'JSTUSDT', 'jst')
+    link = Currency('link', 'LINKIRT', 'LINKUSDT', 'link')
+    ldo = Currency('ldo', 'LDOIRT', 'LDOUSDT', 'ldo')
+    lpt = Currency('lpt', 'LPTIRT', 'LPTUSDT', 'lpt')
+    lrc = Currency('lrc', 'LRCIRT', 'LRCUSDT', 'lrc')
+    ltc = Currency('ltc', 'LTCIRT', 'LTCUSDT', 'ltc')
+    magic = Currency('magic', 'MAGICIRT', 'MAGICUSDT', 'magic')
+    mana = Currency('mana', 'MANAIRT', 'MANAUSDT', 'mana')
+    matic = Currency('matic', 'MATICIRT', 'MATICUSDT', 'matic')
+    mdt = Currency('mdt', 'MDTIRT', 'MDTUSDT', 'mdt')
+    meme = Currency('meme', 'MEMEIRT', 'MEMEUSDT', 'meme')
+    mkr = Currency('mkr', 'MKRIRT', 'MKRUSDT', 'mkr')
+    near = Currency('near', 'NEARIRT', 'NEARUSDT', 'near')
+    not_ = Currency('not', 'NOTIRT', 'NOTUSDT', 'not')
+    nmr = Currency('nmr', 'NMRIRT', 'NMRUSDT', 'nmr')
+    omg = Currency('omg', 'OMGIRT', 'OMGUSDT', 'omg')
+    om = Currency('om', 'OMIRT', 'OMUSDT', 'om')
+    one = Currency('one', 'ONEIRT', 'ONEUSDT', 'one')
+    qnt = Currency('qnt', 'QNTIRT', 'QNTUSDT', 'qnt')
+    rdnt = Currency('rdnt', 'RDNTIRT', 'RDNTUSDT', 'rdnt')
+    rndr = Currency('rndr', 'RNDRIRT', 'RNDRUSDT', 'rndr')
+    rsr = Currency('rsr', 'RSRIRT', 'RSRUSDT', 'rsr')
+    sand = Currency('sand', 'SANDIRT', 'SANDUSDT', 'sand')
+    shib = Currency('shib', 'SHIBIRT', 'SHIBUSDT', 'shib')
+    skl = Currency('skl', 'SKLIRT', 'SKLUSDT', 'skl')
+    slp = Currency('slp', 'SLPIRT', 'SLPUSDT', 'slp')
+    snx = Currency('snx', 'SNXIRT', 'SNXUSDT', 'snx')
+    sol = Currency('sol', 'SOLIRT', 'SOLUSDT', 'sol')
+    storj = Currency('storj', 'STORJIRT', 'STORJUSDT', 'storj')
+    ssv = Currency('ssv', 'SSVIRT', 'SSVUSDT', 'ssv')
+    sushi = Currency('sushi', 'SUSHIIRT', 'SUSHIUSDT', 'sushi')
+    ton = Currency('ton', 'TONIRT', 'TONUSDT', 'ton')
+    trx = Currency('trx', 'TRXIRT', 'TRXUSDT', 'trx')
+    trb = Currency('trb', 'TRBIRT', 'TRBUSDT', 'trb')
+    uni = Currency('uni', 'UNIIRT', 'UNIUSDT', 'uni')
+    uma = Currency('uma', 'UMAIRT', 'UMAUSDT', 'uma')
+    usdc = Currency('usdc', 'USDCIRT', 'USDCUSDT', 'usdc')
+    usdt = Currency('usdt', 'USDTIRT', 'USDTUSDT', 'usdt')
+    w = Currency('w', 'WIRT', 'WUSDT', 'w')
+    wbtc = Currency('wbtc', 'WBTCIRT', 'WBTCUSDT', 'wbtc')
+    woo = Currency('woo', 'WOOIRT', 'WOOUSDT', 'woo')
+    wld = Currency('wld', 'WLDIRT', 'WLDUSDT', 'wld')
+    xlm = Currency('xlm', 'XLMIRT', 'XLMUSDT', 'xlm')
+    xmr = Currency('xmr', 'XMRIRT', 'XMRUSDT', 'xmr')
+    xrp = Currency('xrp', 'XRPIRT', 'XRPUSDT', 'xrp')
+    xtz = Currency('xtz', 'XTZIRT', 'XTZUSDT', 'xtz')
+    yfi = Currency('yfi', 'YFIIRT', 'YFIUSDT', 'yfi')
+    zro = Currency('zro', 'ZROIRT', 'ZROUSDT', 'zro')
+    zrx = Currency('zrx', 'ZRXIRT', 'ZRXUSDT', 'zrx')
