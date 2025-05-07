@@ -32,6 +32,13 @@ class Users(NobitexRoute):
     _version: str = ''
 
     def get_profile(self) -> dict:
+        """
+        Get user profile information.
+
+        Returns:
+            dict: User profile information.
+        """
+
         return self._client._send_request(
             'Get',
             route=self._create_route('profile')

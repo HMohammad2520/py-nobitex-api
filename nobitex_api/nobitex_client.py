@@ -113,7 +113,7 @@ class NobitexClient(RouteMixin):
 
         else:
             return response_dict
-            
+
 
     def __repr__(self):
         """
@@ -123,7 +123,6 @@ class NobitexClient(RouteMixin):
             str: A string containing the class name and key attributes.
         """
         return f'{self.__class__.__name__}(username={self._username}, ***)'
-
 
     def __str__(self) -> str:
         """
