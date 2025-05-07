@@ -5,7 +5,7 @@ from ._base import NobitexRoute
 """
 https://api.nobitex.ir/auth/login/ #Done
 https://api.nobitex.ir/auth/logout/ #Done
-https://api.nobitex.ir/auth/ws/token/ --> For WebSocket #Will Not Get Implemented
+https://api.nobitex.ir/auth/ws/token/ #Done
 """
 
 class Auth(NobitexRoute):
@@ -42,7 +42,7 @@ class Auth(NobitexRoute):
             route = self._create_route('login', ''), # Ensures Addition of / at the end
             request_method = 'POST',
             post_parms = post_parms,
-            )
+        )
 
         if data:
             self._client._token = data.get('key')
@@ -60,7 +60,16 @@ class Auth(NobitexRoute):
             self._client._token = ''
 
         self._client._send_request(
-            route = self._create_route('logout', ''),
+            route = self._create_route('logout', ''), # Ensures Addition of / at the end
             request_method = 'POST',
         )
 
+    def get_web_socket_token(self) -> str:
+        """
+        Retrieves the web socket token.
+        """
+
+        return self._client._send_request(
+            route = self._create_route('ws', 'token', ''), # Ensures Addition of / at the end
+            request_method = 'GET',
+        ).get('token')
