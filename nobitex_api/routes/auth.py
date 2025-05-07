@@ -39,8 +39,8 @@ class Auth(NobitexRoute):
             raise ValueError('Username and password are required')
 
         data = self._client._send_request(
-            route = self._create_route('login', ''), # Ensures Addition of / at the end
             request_method = 'POST',
+            route = self._create_route('login', ''), # Ensures Addition of / at the end
             post_parms = post_parms,
         )
 
@@ -60,8 +60,8 @@ class Auth(NobitexRoute):
             self._client._token = ''
 
         self._client._send_request(
-            route = self._create_route('logout', ''), # Ensures Addition of / at the end
             request_method = 'POST',
+            route = self._create_route('logout', ''), # Ensures Addition of / at the end
         )
 
     def get_web_socket_token(self) -> str:
@@ -70,6 +70,6 @@ class Auth(NobitexRoute):
         """
 
         return self._client._send_request(
-            route = self._create_route('ws', 'token', ''), # Ensures Addition of / at the end
-            request_method = 'GET',
+            request_method='GET',
+            route=self._create_route('ws', 'token', ''), # Ensures Addition of / at the end
         ).get('token')

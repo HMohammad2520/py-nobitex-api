@@ -41,7 +41,7 @@ class Wallets(NobitexRoute):
 
         return self._client._send_request(
             request_method='GET',
-            route_path=self._create_route(version='v2'),
+            route=self._create_route(version='v2'),
             get_parms=get_parms,
         )
 
@@ -74,6 +74,6 @@ class Wallets(NobitexRoute):
 
         return self._client._send_request(
             request_method='POST',
-            route_path=self._create_route('transfer'),
+            route=self._create_route('transfer'),
             post_parms=post_parms,
         )

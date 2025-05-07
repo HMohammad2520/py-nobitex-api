@@ -58,6 +58,7 @@ class NobitexClient(RouteMixin):
 
         Args:
             request_method (RequestMethod): The HTTP method for the request ('GET', 'POST', etc.).
+            route (str): The API route for the request.
             head_parms (dict): The headers for the request.
             get_parms (dict): The GET parameters for the request.
             post_parms (dict): The POST parameters for the request.
