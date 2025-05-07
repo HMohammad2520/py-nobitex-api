@@ -1,6 +1,6 @@
 from typing import Literal, Optional
 from nobitex_api.currency import Currency
-from nobitex_api.type_hints import CurrencyMode
+from nobitex_api.type_hints import CurrencyAgainstMode
 from ._base import NobitexRoute
 
 """
@@ -276,7 +276,7 @@ class Market(NobitexRoute):
     def get_udf_history(
             self,
             symbol: Currency,
-            against: CurrencyMode,
+            against: CurrencyAgainstMode,
             resolution: Literal['1', '5', '15', '30','60', '180', '240', '360', '720', 'D','2D', '3D'],
             to: int,
             fr: int = None,
