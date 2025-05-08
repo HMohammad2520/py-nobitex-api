@@ -3,6 +3,8 @@ from .routes import (
     Depth,
     Market,
     Orderbook,
+    OTP,
+    Security,
     Trades,
     Users,
     Wallets,
@@ -14,6 +16,8 @@ class RouteMixin:
         self.Depth = Depth(self)
         self.Market = Market(self)
         self.Orderbook = Orderbook(self)
+        self.OTP = OTP(self)
+        self.Security = Security(self)
         self.Trades = Trades(self)
         self.Users = Users(self)
         self.Wallets = Wallets(self)
