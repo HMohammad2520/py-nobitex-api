@@ -1,6 +1,7 @@
 from .auth import Auth
 from .depth import Depth
 from .market import Market
+from .options import Options
 from .orderbook import Orderbook
 from .otp import OTP
 from .security import Security
@@ -13,6 +14,7 @@ __all__ = [
     'Auth',
     'Depth',
     'Market',
+    'Options',
     'Orderbook',
     'OTP',
     'Security',
