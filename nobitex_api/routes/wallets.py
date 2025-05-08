@@ -48,7 +48,7 @@ class Wallets(NobitexRoute):
     def transfer(
             self,
             currency: Currency,
-            amount: float,
+            amount: str,
             src: Literal['spot', 'margin'],
             dst: Literal['spot', 'margin'],
         ) -> dict:
@@ -57,7 +57,7 @@ class Wallets(NobitexRoute):
 
         Args:
             currency (Currency): Currency of the transfer.
-            amount (float): Amount of the transfer.
+            amount (str): Amount of the transfer.
             src (str): Source wallet type. It can be 'spot' or 'margin'.
             dest (str): Destination wallet type. It can be 'spot' or 'margin'.
 
