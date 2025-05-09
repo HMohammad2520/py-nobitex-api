@@ -32,7 +32,7 @@ pip install https://github.com/HMohammad2520/py-nobitex-api.git
 
 ## Quick Start
 
-- authenticate with username or password: ***#OTP NOT IMPLEMENTED YET***
+- authenticate with username or password: **#OTP NOT IMPLEMENTED YET**
 ```python
 from nobitex_api.client import NobitexClient
 
