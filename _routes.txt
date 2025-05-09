@@ -1,0 +1,17 @@
+https://api.nobitex.ir/liquidity-pools/list
+
+https://api.nobitex.ir/margin/delegation-limit
+https://api.nobitex.ir/margin/orders/add
+https://api.nobitex.ir/margin/markets/list
+
+https://api.nobitex.ir/positions/list
+https://api.nobitex.ir/positions/128/status
+https://api.nobitex.ir/positions/128/close
+https://api.nobitex.ir/positions/128/edit-collateral
+
+https://api.nobitex.ir/withdraws/433
+
+https://api.nobitex.ir/address_book
+https://api.nobitex.ir/address_book/<address_id>/delete
+https://api.nobitex.ir/address_book/whitelist/activate
+https://api.nobitex.ir/address_book/whitelist/deactivate
