@@ -10,6 +10,7 @@ setup(
     url='https://github.com/Hmohammad2520/py-nobitex-api',
     install_requires=[
         'requests==2.32.3',
+        'requests_cache=1.2.1'
     ],
     packages=find_packages(),
     include_package_data=True,
