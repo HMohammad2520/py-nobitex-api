@@ -6,6 +6,7 @@ This package provides a clean, class-based interface to the Nobitex REST API, in
 
 
 ⚠️⚠️THIS REPO IS WORK IN PROGRESS, DO NOT RELAY ON IT AND WAIT FOR FEATURE RELEASES⚠️⚠️
+
 ---
 
 ## Features
