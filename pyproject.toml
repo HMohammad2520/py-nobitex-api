@@ -19,6 +19,7 @@ classifiers = [
 ]
 dependencies = [
     "requests",
+    "requests_cache",
 ]
 requires-python = ">=3.12"
 
