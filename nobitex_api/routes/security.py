@@ -18,7 +18,7 @@ class Security(NobitexRoute):
         ) -> str:
 
         return self._client._send_request(
-            request_method='POST',
+            method='POST',
             route=self._create_route('anti-phishing')
         ).get('antiPhishingCode')
 
@@ -43,7 +43,7 @@ class Security(NobitexRoute):
         }
 
         return self._client._send_request(
-            request_method='POST',
+            method='POST',
             route=self._create_route('anti-phishing'),
             post_parms=post_parms,
         )
@@ -58,6 +58,6 @@ class Security(NobitexRoute):
             dict: response from server.
         """
         return self._client._send_request(
-            request_method='GET',
+            method='GET',
             route=self._create_route('emergency-cancel', 'activate'),
         )

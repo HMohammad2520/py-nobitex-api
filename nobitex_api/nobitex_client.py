@@ -47,7 +47,7 @@ class NobitexClient(RouteMixin):
 
     def _send_request(
             self, 
-            request_method: RequestMethod,
+            method: RequestMethod,
             route: Optional[str] = '',
             head_parms: Optional[dict] = None,
             get_parms: Optional[dict] = None,
@@ -86,7 +86,7 @@ class NobitexClient(RouteMixin):
         url = self._api_url + route
 
         response: Response = request(
-            method = request_method,
+            method = method,
             url = url,
             params = get_parms,
             headers = head_parms,
@@ -96,7 +96,7 @@ class NobitexClient(RouteMixin):
 
         # Print Verbose
         if self._verbose:
-            print (f'Sending Request: {request_method} {response.url} --> {response.status_code} --> {response.text}')
+            print (f'Sending Request: {method} {response.url} --> {response.status_code} --> {response.text}')
 
         # Check for Server respond
         if 200 <= response.status_code < 500:

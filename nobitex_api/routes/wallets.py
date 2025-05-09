@@ -35,12 +35,12 @@ class Wallets(NobitexRoute):
         currencies_str: List[str] = [currency.symbol for currency in currencies] if currencies is not None else None
         get_parms = {
             'type': type,
-            'currencies': ''.join(currencies_str, ',') if currencies_str is not None else None,
+            'currencies': ','.join(currencies_str) if currencies_str is not None else None,
             }
         get_parms = {k: v for k, v in get_parms.items() if v is not None}
 
         return self._client._send_request(
-            request_method='GET',
+            method='GET',
             route=self._create_route(version='v2'),
             get_parms=get_parms,
         )
@@ -73,7 +73,7 @@ class Wallets(NobitexRoute):
         }
 
         return self._client._send_request(
-            request_method='POST',
+            method='POST',
             route=self._create_route('transfer'),
             post_parms=post_parms,
         )

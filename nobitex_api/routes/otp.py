@@ -34,7 +34,7 @@ class OTP(NobitexRoute):
             }
         
         return self._client._send_request(
-            request_method='GET',
+            method='GET',
             route=self._create_route('request'),
             post_parms=post_parms,
         )

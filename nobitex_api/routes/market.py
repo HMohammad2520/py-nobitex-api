@@ -69,7 +69,7 @@ class Market(NobitexRoute):
         post_parameters = {k: v for k, v in post_parameters.items() if v is not None}
 
         return self._client._send_request(
-            request_method = 'POST', 
+            method = 'POST', 
             route = self._create_route('orders', 'add'),
             post_parms = post_parameters,
         )
@@ -96,7 +96,7 @@ class Market(NobitexRoute):
         post_params = {k: v for k, v in post_params.items() if v is not None}
 
         return self._client._send_request(
-            request_method = 'POST',
+            method = 'POST',
             route = self._create_route('orders', 'status'),
             post_parms = post_params,
         )
@@ -144,7 +144,7 @@ class Market(NobitexRoute):
         post_params = {k: v for k, v in post_params.items() if v is not None}
 
         return self._client._send_request(
-            request_method = 'GET',
+            method = 'GET',
             route = self._create_route('orders', 'list'),
             post_parms = post_params,
         )
@@ -172,7 +172,7 @@ class Market(NobitexRoute):
         post_params = {k: v for k, v in post_params.items() if v is not None}
 
         return self._client._send_request(
-            request_method = 'POST',
+            method = 'POST',
             route = self._create_route('orders', 'update-status'),
             post_parms = post_params,
         )
@@ -209,7 +209,7 @@ class Market(NobitexRoute):
         post_params = {k: v for k, v in post_params.items() if v is not None}
         
         return self._client._send_request(
-            request_method = 'POST',
+            method = 'POST',
             route = self._create_route('orders', 'cancel-old'),
             post_parms = post_params,
         )
@@ -240,7 +240,7 @@ class Market(NobitexRoute):
         get_parms = {k: v for k, v in get_parms.items() if v is not None}
 
         return self._client._send_request(
-            request_method='GET',
+            method='GET',
             route=self._create_route('trades', 'list'),
             get_parms=get_parms,
         )
@@ -268,7 +268,7 @@ class Market(NobitexRoute):
         get_parms = {k: v for k, v in get_parms.items() if v is not None}
         
         return self._client._send_request(
-            request_method='GET',
+            method='GET',
             route=self._create_route('stats'),
             get_parms=get_parms,
         )
@@ -308,7 +308,7 @@ class Market(NobitexRoute):
         get_parms = {k: v for k, v in get_parms.items() if v is not None}
 
         return self._client._send_request(
-            request_method='GET',
+            method='GET',
             route=self._create_route('udf', 'history'),
             get_parms=get_parms,
         )
@@ -321,6 +321,6 @@ class Market(NobitexRoute):
             dict: Response from the server.
         """
         return self._client._send_request(
-            request_method='POST',
+            method='POST',
             route=self._create_route('global-stats'),
         )

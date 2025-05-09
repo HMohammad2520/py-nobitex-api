@@ -22,6 +22,6 @@ class Options(NobitexRoute):
         """
 
         return self._client._send_request(
-            request_method='GET',
+            method='GET',
             route=self._create_route(),
         )
