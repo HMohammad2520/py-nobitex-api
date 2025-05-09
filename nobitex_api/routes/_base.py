@@ -1,8 +1,5 @@
 from typing import Literal, Optional
 
-BASE_LIMIT = 300
-BASE_OFFSET = 0
-
 class NobitexRoute:
     """
     A base class for interacting with a Sarv CRM module. This class provides methods to 
