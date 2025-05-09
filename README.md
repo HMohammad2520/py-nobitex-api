@@ -4,6 +4,8 @@
 
 This package provides a clean, class-based interface to the Nobitex REST API, including methods for authentication, market data retrieval, order management, and wallet balance checks.
 
+
+⚠️⚠️THIS REPO IS WORK IN PROGRESS, DO NOT RELAY ON IT AND WAIT FOR FEATURE RELEASES⚠️⚠️
 ---
 
 ## Features
