@@ -1,6 +1,7 @@
+# nobitex_api\routes\market.py
 from typing import Literal, Optional
-from nobitex_api.currency import Currency
-from nobitex_api.type_hints import CurrencyAgainstMode
+from nobitex_api._currency import Currency
+from nobitex_api._type_hints import CurrencyAgainstMode
 from ._base import NobitexRoute
 
 """

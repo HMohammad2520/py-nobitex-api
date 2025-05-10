@@ -1,3 +1,4 @@
+# nobitex_api\_nobitex_client.py
 import json, requests_cache
 from requests import Response, Session
 
@@ -6,8 +7,8 @@ from datetime import datetime, timedelta
 
 from ._mixins import RouteMixin
 from ._url import NobitexAPI
-from .exceptions import NobitexException
-from .type_hints import RequestMethod
+from ._exceptions import NobitexException
+from ._type_hints import RequestMethod
 
 class NobitexClient(RouteMixin):
     """

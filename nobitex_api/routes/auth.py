@@ -1,5 +1,6 @@
+# nobitex_api\routes\auth.py
 from typing import Optional
-from nobitex_api.type_hints import NobitexBool, NobitexCaptcha
+from nobitex_api._type_hints import NobitexBool, NobitexCaptcha
 from ._base import NobitexRoute
 
 """

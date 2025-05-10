@@ -1,3 +1,4 @@
+# nobitex_api\_type_hints.py
 from typing import Literal, TypeAlias
 
 RequestMethod: TypeAlias = Literal['GET', 'POST', 'PUT', 'DELETE']

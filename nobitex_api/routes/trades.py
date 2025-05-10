@@ -1,6 +1,7 @@
+# nobitex_api\routes\trades.py
 from ._base import NobitexRoute
-from nobitex_api.currency import Currency
-from nobitex_api.type_hints import CurrencyAgainstMode
+from nobitex_api._currency import Currency
+from nobitex_api._type_hints import CurrencyAgainstMode
 
 """
 https://api.nobitex.ir/v2/trades/ #Done

@@ -1,3 +1,4 @@
+# nobitex_api\_currency.py
 from typing import Literal
 
 class Currency:

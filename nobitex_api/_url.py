@@ -1,3 +1,4 @@
+# nobitex_api\_url.py
 from typing import LiteralString
 
 NobitexAPI: LiteralString = 'https://api.nobitex.ir'

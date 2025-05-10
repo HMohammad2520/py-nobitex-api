@@ -1,5 +1,6 @@
-from nobitex_api.currency import Currency
-from nobitex_api.type_hints import CurrencyAgainstMode
+# nobitex_api\routes\depth.py
+from nobitex_api._currency import Currency
+from nobitex_api._type_hints import CurrencyAgainstMode
 from ._base import NobitexRoute
 
 """
